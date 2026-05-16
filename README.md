@@ -90,6 +90,31 @@ korzystania ze skilla.
 
 ## Instalacja
 
+### Sposób A — przez Claude Code (najprościej)
+
+Otwórz Claude Code, wklej link do tego repozytorium i napisz **„zainstaluj to"**.
+Claude Code wykona wtedy poniższe kroki — to jest też instrukcja dla agenta:
+
+1. Sklonuj repozytorium: `git clone https://github.com/johnfelson00/claude-project-kit.git`.
+2. Uruchom instalator: `install.ps1` (Windows) lub `install.sh` (macOS/Linux).
+   Skopiuje on 3 skille do `~/.claude/skills/`.
+3. Sprawdź Pythona dla skilla `generator-raportow`: `python --version`. Jeśli
+   go brakuje — zaproponuj użytkownikowi instalację (Windows:
+   `winget install Python.Python.3.12`), a po niej zainstaluj pakiety:
+   `pip install --user python-docx matplotlib openpyxl numpy`.
+4. Przypomnij użytkownikowi, aby zrestartował Claude Code.
+
+**Czego Claude Code NIE zrobi za użytkownika:**
+
+- Nie zainstaluje gita ani samego Claude Code — oba muszą już być (git jest
+  potrzebny, by w ogóle pobrać to repo).
+- Nie wykona komend zmieniających system bez zgody — przy instalacji Pythona
+  czy kopiowaniu plików pojawi się prośba o zatwierdzenie. To normalne.
+- Python jest potrzebny **tylko** dla raportów i **tylko** w chwili ich
+  generowania — `init-project` i `update-memory` działają bez niego.
+
+### Sposób B — ręcznie
+
 Sklonuj repozytorium i uruchom instalator dla swojego systemu.
 
 ```bash
