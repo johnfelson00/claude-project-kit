@@ -1,0 +1,51 @@
+# {{PROJECT_NAME}} — CLAUDE.md
+*Last updated: {{TODAY}}*
+
+---
+
+## A · What this folder is
+
+{{ONE_PARAGRAPH_DESCRIBING_FOLDER}}
+
+**Stage:** {{STAGE}}
+
+## B · The Goal
+
+- **Why it exists:** {{GOAL_WHY}}
+- **Done looks like:** {{GOAL_DONE}}
+- **Out of scope:** {{GOAL_OUT_OF_SCOPE}}
+
+## C · Stack
+
+- **Languages:** {{LANGUAGES}}
+- **Frameworks:** {{FRAMEWORKS}}
+- **Hosting / infra:** {{HOSTING}}
+- **Key services:** {{SERVICES}}
+- **Run locally:** `{{RUN_COMMAND}}`
+- **Key files:** `{{KEY_FILES}}`
+
+## D · Decisions
+*One line each. Date · what · why.*
+
+- `{{TODAY}}` — initialized via /init-project because {{INIT_REASON}}
+
+## E · Memory Map
+
+What lives under `/memory`:
+
+- `project-brief.md` — frozen kickoff (full Q1–Q5 answers from /init-project)
+- `current-strategy.md` — current focus, edited weekly
+- `decisions.md` — long-form behind every D entry
+- `next-actions.md` — punch list
+- `session-summaries.md` — wrap-ups, dated
+- `bugs-and-risks.md` — open issues, watch-outs
+
+## F · References
+
+- **Repo:** {{REPO}}
+- **Notion:** {{NOTION}}
+- **Linear / Jira:** {{TRACKER}}
+- **Production URL:** {{PROD_URL}}
+- **Dashboards:** {{DASHBOARDS}}
+
+{{OPTIONAL_G_SECTION}}
