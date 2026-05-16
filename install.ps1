@@ -12,7 +12,7 @@ if (-not (Test-Path $source)) {
 
 New-Item -ItemType Directory -Force -Path $target | Out-Null
 
-foreach ($skill in @('init-project', 'update-memory')) {
+foreach ($skill in @('init-project', 'update-memory', 'generator-raportow')) {
     $src = Join-Path $source $skill
     $dst = Join-Path $target $skill
     if (Test-Path $dst) {

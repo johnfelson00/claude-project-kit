@@ -14,7 +14,7 @@ fi
 
 mkdir -p "$TARGET"
 
-for skill in init-project update-memory; do
+for skill in init-project update-memory generator-raportow; do
   src="$SOURCE/$skill"
   dst="$TARGET/$skill"
   if [ -d "$dst" ]; then

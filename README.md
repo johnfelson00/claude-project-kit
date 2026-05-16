@@ -1,11 +1,13 @@
 # claude-project-kit
 
-Uniwersalny szkielet **pamięci projektu** dla [Claude Code](https://claude.com/claude-code).
-Dwa skille, które razem dają każdemu folderowi trwałą, ustrukturyzowaną pamięć —
-sklonuj, zainstaluj i używaj w dowolnym projekcie.
+Zestaw skilli dla [Claude Code](https://claude.com/claude-code). Rdzeń to
+uniwersalny szkielet **pamięci projektu** — dwa skille, które dają każdemu
+folderowi trwałą, ustrukturyzowaną pamięć. Dochodzi do tego skill generujący
+akademickie raporty. Sklonuj, zainstaluj i używaj w dowolnym projekcie.
 
 - **`init-project`** — bootstrapuje pusty folder: tworzy `CLAUDE.md` i folder `memory/`.
 - **`update-memory`** — synchronizuje tę pamięć na koniec każdej sesji.
+- **`generator-raportow`** — buduje skrypty Python generujące raporty `.docx` (opcjonalnie + `.xlsx`).
 
 ## Po co to jest
 
@@ -66,6 +68,26 @@ Sprawdza, co zmieniło się w sesji (git diff lub pytanie do użytkownika) i:
 
 Jeśli w sesji nic się nie wydarzyło — kończy bez zapisu (nie fabrykuje stanu).
 
+## Co robi `generator-raportow`
+
+Skill prowadzi przez budowę **akademickiego raportu studenckiego** metodą
+"raport z kodu": dane i obliczenia trzymane są w skrypcie Python, a raport
+`.docx` (opcjonalnie + załącznik `.xlsx` lub osadzone wykresy) powstaje jednym
+poleceniem `python <skrypt>.py` — i można go regenerować bez ręcznych poprawek.
+
+Co robi krok po kroku:
+
+- czyta wytyczne przedmiotu (PDF / instrukcja) i wyciąga z nich checklistę
+  wymaganych sekcji,
+- kopiuje gotowy szablon `szablon-raportu.py` (helpery do stron tytułowych,
+  tabel, wykresów matplotlib, formuł, bibliografii, arkusza XLSX),
+- pomaga wstawić dane i złożyć sekcje merytoryczne w kolejności z wytycznych,
+- pilnuje konwencji raportu akademickiego (`references/checklista-raportu.md`).
+
+Wymaga Pythona z pakietem `python-docx` (oraz opcjonalnie `matplotlib`,
+`openpyxl`, `numpy`). Lokalizację skryptu i artefaktów wskazujesz sam podczas
+korzystania ze skilla.
+
 ## Instalacja
 
 Sklonuj repozytorium i uruchom instalator dla swojego systemu.
@@ -87,12 +109,12 @@ cd claude-project-kit
 chmod +x install.sh && ./install.sh
 ```
 
-Instalator kopiuje oba skille do `~/.claude/skills/` (czyli
+Instalator kopiuje wszystkie skille do `~/.claude/skills/` (czyli
 `%USERPROFILE%\.claude\skills\` na Windows). Po instalacji uruchom ponownie
 Claude Code, aby skille zostały wykryte.
 
-**Instalacja ręczna:** skopiuj foldery `skills/init-project/` oraz
-`skills/update-memory/` do `~/.claude/skills/`.
+**Instalacja ręczna:** skopiuj foldery `skills/init-project/`,
+`skills/update-memory/` oraz `skills/generator-raportow/` do `~/.claude/skills/`.
 
 ## Użycie
 
@@ -108,6 +130,9 @@ Claude Code, aby skille zostały wykryte.
 # memory/ zostaje zsynchronizowane
 ```
 
+Aby zbudować raport — powiedz Claude'owi „zbuduj raport" / „wygeneruj raport"
+i podaj dane oraz wytyczne; uruchomi się `generator-raportow`.
+
 ## Struktura repozytorium
 
 ```
@@ -120,8 +145,11 @@ claude-project-kit/
     ├── init-project/
     │   ├── SKILL.md
     │   └── references/    # szablony CLAUDE.md, memory/, komendy
-    └── update-memory/
-        └── SKILL.md
+    ├── update-memory/
+    │   └── SKILL.md
+    └── generator-raportow/
+        ├── SKILL.md
+        └── references/    # checklista raportu + szablon-raportu.py
 ```
 
 ## Licencja
