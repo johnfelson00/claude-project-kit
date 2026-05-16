@@ -110,8 +110,9 @@ chmod +x install.sh && ./install.sh
 ```
 
 Instalator kopiuje wszystkie skille do `~/.claude/skills/` (czyli
-`%USERPROFILE%\.claude\skills\` na Windows). Po instalacji uruchom ponownie
-Claude Code, aby skille zostały wykryte.
+`%USERPROFILE%\.claude\skills\` na Windows), a na końcu wypisuje **przewodnik
+krok po kroku** — co zostało zainstalowane i jak z tego korzystać. Po
+instalacji uruchom ponownie Claude Code, aby skille zostały wykryte.
 
 **Instalacja ręczna:** skopiuj foldery `skills/init-project/`,
 `skills/update-memory/` oraz `skills/generator-raportow/` do `~/.claude/skills/`.
