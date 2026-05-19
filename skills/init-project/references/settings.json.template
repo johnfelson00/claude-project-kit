@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -Command \"Get-Content -Raw -ErrorAction SilentlyContinue memory/current-strategy.md, memory/next-actions.md\""
+          }
+        ]
+      }
+    ]
+  }
+}
